@@ -1,4 +1,4 @@
-# Rick and Morty GraphQL
+### Rick and Morty GraphQL
 
 This is an exercise project that connects with Rick and Morty API using GraphQL.
 
@@ -8,7 +8,7 @@ The project is a small, clean example of consuming a public API with GraphQL and
 
 ---
 
-## Stack
+### Stack
 
 - React
 - GraphQL

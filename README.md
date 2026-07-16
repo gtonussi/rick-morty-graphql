@@ -4,7 +4,7 @@ This is an exercise project that connects with Rick and Morty API using GraphQL.
 
 The project is a small, clean example of consuming a public API with GraphQL and presenting the data in a simple user interface for portfolio use.
 
-<img src="image.png" alt="Project preview" width="400" />
+<img src="README-image.png" alt="Project preview" width="400" />
 
 ---
 

@@ -4,9 +4,10 @@ import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 import App from "./App";
 import { ApolloProvider } from "@apollo/client/react";
 
+const defaultApiUrl = "https://rickandmortyapi.com/graphql";
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: process.env.REACT_APP_API_URL,
+    uri: process.env.REACT_APP_API_URL || defaultApiUrl,
   }),
   cache: new InMemoryCache(),
 });

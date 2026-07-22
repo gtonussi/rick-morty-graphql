@@ -1,0 +1,128 @@
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: Inter, system-ui, sans-serif;
+  color: #20232a;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.app-subtitle {
+  margin: 0 auto;
+  max-width: 720px;
+  color: #4b5563;
+}
+
+.status-message {
+  display: block;
+  margin: 24px auto;
+  max-width: 640px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  text-align: center;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.status-error {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.character-card {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.character-card-image-wrapper {
+  background: #f8fafc;
+  min-height: 250px;
+  display: grid;
+  place-items: center;
+}
+
+.character-card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.character-card-image.placeholder {
+  width: 100%;
+  padding: 48px 0;
+  color: #6b7280;
+  text-align: center;
+}
+
+.character-card-body {
+  padding: 16px;
+}
+
+.character-card-body h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.character-card-body p {
+  margin: 8px 0;
+  color: #374151;
+}
+
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.pagination-bar button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.pagination-bar button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pagination-bar button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.empty-state {
+  text-align: center;
+  color: #475569;
+  font-weight: 500;
+}

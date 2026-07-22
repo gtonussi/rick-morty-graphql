@@ -1,27 +1,55 @@
-import { useQuery } from "@apollo/client/react";
-import { GET_ALL_CHARACTERS } from "./queries";
-import Card from "./card";
+import { useState } from "react";
+import useCharacters from "./hooks/useCharacters";
+import CharacterGrid from "./components/CharacterGrid";
+import "./App.css";
 
 const App = () => {
-  const { loading, error, data } = useQuery(GET_ALL_CHARACTERS, {
-    variables: { page: 1 },
-  });
+  const [page, setPage] = useState(1);
+  const { loading, error, characters, pageInfo } = useCharacters(page);
 
-  if (loading) return <p>Loading...</p>;
+  const goPrevious = () => {
+    if (pageInfo.prev) {
+      setPage(pageInfo.prev);
+    }
+  };
 
-  if (error) return <p>Error {error.message}</p>;
+  const goNext = () => {
+    if (pageInfo.next) {
+      setPage(pageInfo.next);
+    }
+  };
 
   return (
-    <>
-      <header>
-        <h1 className="text-center m-5">Rick and Morty GraphQL</h1>
-        <div className="row">
-          {data?.characters.results.map((character) => (
-            <Card key={character.id} character={character} />
-          ))}
-        </div>
+    <main className="app-shell">
+      <header className="app-header">
+        <h1>Rick and Morty GraphQL</h1>
+        <p className="app-subtitle">
+          Browse characters from a public GraphQL API with pagination and strong
+          loading/error handling.
+        </p>
       </header>
-    </>
+
+      {loading && <div className="status-message">Loading characters…</div>}
+      {error && (
+        <div className="status-message status-error">
+          Error: {error.message}
+        </div>
+      )}
+
+      {!loading && !error && <CharacterGrid characters={characters} />}
+
+      <footer className="pagination-bar">
+        <button onClick={goPrevious} disabled={!pageInfo.prev}>
+          Previous
+        </button>
+        <span>
+          Page {page} of {pageInfo.pages || "?"}
+        </span>
+        <button onClick={goNext} disabled={!pageInfo.next}>
+          Next
+        </button>
+      </footer>
+    </main>
   );
 };
 

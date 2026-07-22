@@ -1,4 +1,4 @@
-const Card = ({ character }) => {
+const CharacterCard = ({ character }) => {
   const locationName = character.location?.name || "Unknown";
   const imageAlt = character.image
     ? `${character.name} avatar`
@@ -34,4 +34,4 @@ const Card = ({ character }) => {
   );
 };
 
-export default Card;
+export default CharacterCard;

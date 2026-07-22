@@ -54,6 +54,37 @@ Open http://localhost:3000 in your browser.
 
 ---
 
+### Run with Docker
+
+Build and run with Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Then open http://localhost:3000.
+
+To stop it:
+
+```bash
+docker compose down
+```
+
+You can override the API URL when building:
+
+```bash
+REACT_APP_API_URL=https://rickandmortyapi.com/graphql docker compose up --build
+```
+
+Or use plain Docker commands:
+
+```bash
+docker build -t rick-morty-graphql .
+docker run --rm -p 3000:80 rick-morty-graphql
+```
+
+---
+
 ### Running tests
 
 ```bash

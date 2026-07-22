@@ -1,4 +1,4 @@
-import Card from "../Card";
+import CharacterCard from "./CharacterCard";
 
 const CharacterGrid = ({ characters }) => {
   if (!characters.length) {
@@ -8,7 +8,7 @@ const CharacterGrid = ({ characters }) => {
   return (
     <section className="character-grid" aria-label="Character list">
       {characters.map((character) => (
-        <Card key={character.id} character={character} />
+        <CharacterCard key={character.id} character={character} />
       ))}
     </section>
   );
